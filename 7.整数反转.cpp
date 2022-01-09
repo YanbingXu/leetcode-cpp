@@ -14,15 +14,14 @@ public:
             res = res * 10 + x % 10;
             x /= 10;
         }
-        
 
-        if (res>__INT_MAX__ || res < -__INT_MAX__-1) {
-            return 0;
-        }
+        // if (res>__INT_MAX__ || res < -__INT_MAX__-1) {
+        //     return 0;
+        // }
 
-        return res;
+        // return res;
 
-        // return (res>__INT_MAX__) || (res < (-__INT_MAX__-1)) ? 0 : res;
+        return (res>__INT_MAX__) || (res < (-__INT_MAX__-1)) ? 0 : res;
     }
 };
 // @lc code=end
