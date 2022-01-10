@@ -7,44 +7,27 @@
 // @lc code=start
 class Solution {
 public:
+    unordered_map<char, int> table = {
+            {'I', 1},{'V', 5},{'X', 10},{'L', 50},{'C', 100},{'D', 500},{'M', 1000},
+    };
     int romanToInt(string s) {
-        if (s == "IV") {
-            return 4;
-        }else if (s == "IX") {
-            return 9;
-        }else if ()
         int res = 0;
-        for (int i = 0; i < s.length(); i++)
+        // 如果左边数字比右边数字小，则左边取反再相加
+        //否则依次相加
+        for (int i = 0; i < s.size() - 1; i++)
         {
-            char& temp = s[i];
-            switch (temp)
+            if (table[s[i]] < table[s[i + 1]])
             {
-            case 'I':
-                res += 1;
-                break;
-            case 'V':
-                res += 5;
-                break;
-            case 'X':
-                res += 10;
-                break;
-            case 'L':
-                res += 50;
-                break;
-            case 'C':
-                res += 100;
-                break;
-            case 'D':
-                res += 500;
-                break;
-            case 'M':
-                res += 1000;
-                break;
-            default:
-                break;
+                res += -table[s[i]];
+            }else {
+                res += table[s[i]];
             }
+
         }
-        return res;   
+
+        res += table[s[s.size() - 1]];
+        return res;
+
     }
 };
 // @lc code=end
