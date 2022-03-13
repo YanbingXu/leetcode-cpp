@@ -45,7 +45,6 @@ public:
                 }else {
                     break;
                 }
-
             }
 
             pre = root;
